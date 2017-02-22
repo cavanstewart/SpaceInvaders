@@ -1,5 +1,7 @@
 #include "lazer.h"
 #include <QTimer>
+#include <QDebug>
+#include <QGraphicsScene>
 
 Lazer::Lazer ()
 {
@@ -11,4 +13,9 @@ Lazer::Lazer ()
 
 void Lazer::move(){
     setPos(x(),y()-10);
+    if (pos().y() + rect().height() < 0){
+        scene()->removeItem(this);
+        delete this;
+        qDebug()<<"lazer deleted";
+    }
 }
