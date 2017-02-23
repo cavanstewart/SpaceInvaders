@@ -3,6 +3,7 @@
 #include <QGraphicsView>
 #include <QGraphicsScene>
 #include "myrect.h"
+#include "enemy.h"
 
 int main(int argc, char *argv[])
 {
@@ -14,9 +15,10 @@ int main(int argc, char *argv[])
     //create item to put in scene
     MyRect* player = new MyRect;
     player->setRect(0,0,100,100);
-
+    Enemy* enemy = new Enemy;
     //add player to scene
     scene->addItem(player);
+    scene->addItem(enemy);
 
     //make rect focusable
     player->setFlag(QGraphicsItem::ItemIsFocusable);

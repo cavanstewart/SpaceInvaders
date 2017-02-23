@@ -25,8 +25,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp \
     myrect.cpp \
-    lazer.cpp
+    lazer.cpp \
+    enemy.cpp \
+    game.cpp
 
 HEADERS  += \
     myrect.h \
-    lazer.h
+    lazer.h \
+    enemy.h \
+    game.h
