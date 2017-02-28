@@ -13,9 +13,9 @@ int main(int argc, char *argv[])
     QGraphicsScene* scene = new QGraphicsScene();
 
     //create item to put in scene
-    MyRect* player = new MyRect;
+    MyRect* player = new MyRect();
     player->setRect(0,0,100,100);
-    Enemy* enemy = new Enemy;
+    Enemy* enemy = new Enemy();
     //add player to scene
     scene->addItem(player);
     scene->addItem(enemy);
@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
     view->setFixedSize(800,600);
     scene->setSceneRect(0,0,800,600);
 
-    player->setPos(view->width()/2,view->height()-player->rect().height());
+    player->setPos(view->width()/2/*2-player->width()/2*/,view->height()-player->rect().height());
 
     return a.exec();
 }
