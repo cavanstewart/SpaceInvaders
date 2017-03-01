@@ -1,10 +1,11 @@
-#include "myrect.h"
+#include "player.h"
 #include "lazer.h"
 #include<QDebug>
 #include <QKeyEvent>
 #include <QGraphicsScene>
 
-void MyRect::keyPressEvent(QKeyEvent *event){
+
+void Player::keyPressEvent(QKeyEvent *event){
     if(event->key() == Qt::Key_Left){
         if (pos().x() > 0){
         setPos(x()-10,y());

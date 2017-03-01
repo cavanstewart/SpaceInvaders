@@ -12,7 +12,12 @@ Lazer::Lazer ()
 }
 
 void Lazer::move(){
+
+
+    //move lazer up
     setPos(x(),y()-10);
+
+    //delete lazer if it leaves scene
     if (pos().y() + rect().height() < 0){
         scene()->removeItem(this);
         delete this;
