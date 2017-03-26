@@ -6,28 +6,39 @@
 
 Enemy::Enemy(int xpos, int ypos) : QObject(), QGraphicsRectItem()
 {
-    dir = 1;
+    dx = 1;
+    dy = 0;
+    xdir = 1;
+    speed = 1;
     setRect(0,0,40,40);
     setPos(xpos,ypos);
     timer = new QTimer();
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));
-    timer->start(1000);
+    timer->start(initSpeed);
 }
 
 
 void Enemy::move()
 {
-    setPos(x()+(40 * dir),y());
+    setPos(x()+(40 * dx * xdir),y()+ (40 * dy));
 
-    if(pos().x() == 800 - rect().width()){
-        timer->stop();
-        setPos(x(),y()+40);
-        dir = -1;
+    if(pos().x() == 800 - rect().width() && dx !=0){
+        dy = 1;
+        xdir = -1;
+        dx = 0;
+        speed++;
+        timer->start(initSpeed / speed);
     }
-
-    if(pos().x()==0){
-        dir = 1;
-        setPos(x(),y()+40);
+    else if(pos().x()==0 && dx !=0){
+        dy = 1;
+        xdir = 1;
+        dx = 0;
+        speed++;
+        timer->start(initSpeed / speed);
+    }
+        else {
+        dx = 1;
+        dy = 0;
     }
 
 

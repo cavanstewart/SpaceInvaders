@@ -16,7 +16,7 @@ void Player::keyPressEvent(QKeyEvent *event){
         setPos(x()+10,y());
         }
     }
-    else if(event->key() == Qt::Key_Space){
+    else if((event->key() == Qt::Key_Space) && !(Lazer::numLazers)){
         Lazer* lazer = new Lazer();
         lazer->setPos(x(),y());
         scene()->addItem(lazer);
