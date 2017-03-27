@@ -9,10 +9,12 @@ class Enemy : public QObject, public QGraphicsRectItem{
 public:
     Enemy(int xpos = 0, int ypos = 0);
     int initSpeed = 600;
+    int initx;
     int xdir;
     int dy;
     int dx;
     int speed;
+    static int distance;
     QTimer* timer;
 
 public slots:

@@ -6,14 +6,18 @@
 #include <QGraphicsScene>
 #include "player.h"
 #include "enemy.h"
+#include "title.h"
 
-class Game : public QGraphicsView {
+class Game : public QGraphicsScene {
+    Q_OBJECT
 public:
-    Game(QWidget* parent = 0);
+    Game(Title* window = 0);
 
+private:
     Player* player;
     Enemy* enemy;
-    QGraphicsScene* scene;
+    Title* parentWindow;
+
 };
 
 #endif // GAME_H

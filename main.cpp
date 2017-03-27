@@ -1,14 +1,14 @@
 
 #include <QApplication>
-#include "game.h"
+#include "title.h"
 
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    Game* game = new Game();
-    game->show();
+   Title window;
+   window.show();
 
     return a.exec();
 }

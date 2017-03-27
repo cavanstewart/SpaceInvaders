@@ -27,10 +27,12 @@ SOURCES += main.cpp \
     lazer.cpp \
     enemy.cpp \
     game.cpp \
-    player.cpp
+    player.cpp \
+    title.cpp
 
 HEADERS  += \
     lazer.h \
     enemy.h \
     game.h \
-    player.h
+    player.h \
+    title.h

@@ -1,15 +1,11 @@
 #include "game.h"
 
-Game::Game(QWidget* parent)
+Game::Game(Title* window)
 {
     //create a scene
-    scene = new QGraphicsScene();
-    scene->setSceneRect(0,0,800,600);
+    setSceneRect(0,0,800,600);
 
-    setScene(scene);
-    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setFixedSize(800,600);
+
 
 
     //create item to put in scene
@@ -19,10 +15,12 @@ Game::Game(QWidget* parent)
     //make player focusable
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
-    scene->addItem(player);
+    addItem(player);
 
-    enemy = new Enemy();
-    scene->addItem(enemy);
-
-    show();
+    for(int i = 0; i < 5; i++){
+        for (int j = 0; j < 5; j++){
+            enemy = new Enemy(i*80,j*80);
+            addItem(enemy);
+        }
+    }
 }

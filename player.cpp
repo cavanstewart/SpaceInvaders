@@ -12,7 +12,7 @@ void Player::keyPressEvent(QKeyEvent *event){
         }
     }
     else if(event->key() == Qt::Key_Right){
-        if (pos().x() + 100 < 800){
+        if (pos().x() + 40 < 800){
         setPos(x()+10,y());
         }
     }
