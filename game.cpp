@@ -5,8 +5,7 @@ Game::Game(Title* window)
     //create a scene
     setSceneRect(0,0,800,600);
 
-
-
+    addLine(0,480,800,480);
 
     //create item to put in scene
     player = new Player();

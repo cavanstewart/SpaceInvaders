@@ -6,6 +6,14 @@
 #include <QLabel>
 #include <QFont>
 #include <QGraphicsScene>
+#include <QKeyEvent>
+
+class Button : public QPushButton {
+public:
+    Button(const QString &dtext, QWidget *dparent = Q_NULLPTR) : QPushButton(dtext,dparent){};
+    void keyPressEvent(QKeyEvent* event);
+};
+
 
 class Title : public QMainWindow
 {
@@ -16,12 +24,13 @@ public:
 
 private:
     QLabel *title;
-    QPushButton *startButton;
+    Button *startButton;
     QGraphicsScene *gameScene;
     QGraphicsView *gameView;
 
 private slots:
     void start();
 };
+
 
 #endif // TITLE_H

@@ -15,7 +15,7 @@ Title::Title(QWidget *parent) : QMainWindow(parent)
     QFont titleFont("Times", 40, QFont::AllUppercase);
     title->setFont(titleFont);
 
-    startButton = new QPushButton("Start",this);
+    startButton = new Button("Start",this);
     QFont buttonFont("Times", 40, QFont::AllUppercase);
     startButton-> setFont(buttonFont);
     startButton-> setGeometry(300,300,200,100);
@@ -25,6 +25,7 @@ Title::Title(QWidget *parent) : QMainWindow(parent)
 
 void Title::start()
 {
+    //if(event->key() != Qt::Key_Space){
     hide_all();
     gameScene = new Game(this);
     gameView = new QGraphicsView(this);
@@ -32,9 +33,18 @@ void Title::start()
     this->setCentralWidget(gameView);
     gameView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     gameView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    //}
 }
 
 void Title::hide_all(){
     title-> setVisible(false);
     startButton-> setVisible(false);
+}
+
+void Button::keyPressEvent(QKeyEvent *event)
+{
+    if (event->key() == Qt::Key_Space)
+        return;
+    else
+        QPushButton::keyPressEvent(event);
 }

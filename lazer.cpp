@@ -38,7 +38,7 @@ void Lazer::move(){
             delete colliding_items[i];
             delete this;
 
-            // return (all code below refers to a non existint bullet)
+
             return;
         }
     }

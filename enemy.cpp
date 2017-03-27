@@ -4,7 +4,8 @@
 #include <QDebug>
 #include <cmath>
 
-int Enemy::distance = 440;
+int Enemy::xdistance = 440;
+bool Enemy::yhit = false;
 
 Enemy::Enemy(int xpos, int ypos) : QObject(), QGraphicsRectItem()
 {
@@ -13,6 +14,7 @@ Enemy::Enemy(int xpos, int ypos) : QObject(), QGraphicsRectItem()
     xdir = 1;
     speed = 1;
     initx = xpos;
+    inity = ypos;
     setRect(0,0,40,40);
     setPos(xpos,ypos);
     timer = new QTimer();
@@ -25,8 +27,19 @@ void Enemy::move()
 {
     setPos(x()+(40 * dx * xdir),y()+ (40 * dy));
 
+    if (pos().y() == 480){
+        yhit=true;
+    }
 
-    if(pos().x() == (initx + distance) && dx !=0){
+    if(yhit == true){
+        timer->stop();
+    }
+
+   // if(pos().y() == inity + ydistance){
+    //    timer->stop();
+   // }
+
+    if(pos().x() == (initx + xdistance) && dx !=0){
         dy = 1;
         xdir = -1;
         dx = 0;

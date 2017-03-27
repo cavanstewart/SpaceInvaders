@@ -10,11 +10,13 @@ public:
     Enemy(int xpos = 0, int ypos = 0);
     int initSpeed = 600;
     int initx;
+    int inity;
     int xdir;
     int dy;
     int dx;
     int speed;
-    static int distance;
+    static int xdistance;
+    static bool yhit;
     QTimer* timer;
 
 public slots:
