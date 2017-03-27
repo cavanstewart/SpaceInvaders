@@ -10,6 +10,7 @@ bool Enemy::yhit = false;
 Enemy::Enemy(int xpos, int ypos, Title *window) : QObject(), QGraphicsRectItem()
 {
     mainWindow=window;
+    setBrush(*new QBrush(Qt::darkGreen));
     dx = 1;
     dy = 0;
     xdir = 1;
@@ -25,6 +26,9 @@ Enemy::Enemy(int xpos, int ypos, Title *window) : QObject(), QGraphicsRectItem()
 
 void Enemy::gameOver()
 {
+    for (size_t i = 0, n = mainWindow->get_gameScene()->items().size(); i < n; i++){
+            mainWindow->get_gameScene()->items()[i]->setEnabled(false);
+        }
     QLabel* gameOverText = new QLabel("Game Over");
     gameOverText->setStyleSheet("QLabel {color : red; }");
     gameOverText->setGeometry(200,200,400,100);

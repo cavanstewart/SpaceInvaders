@@ -9,9 +9,10 @@ int Lazer::numLazers = 0;
 Lazer::Lazer ()
 {
     setRect(0,0,10,50);
+    setBrush(*new QBrush(Qt::yellow));
     QTimer* timer = new QTimer();
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));
-    timer->start(20);
+    timer->start(10);
     numLazers++;
 
 }

@@ -5,13 +5,16 @@ Game::Game(Title* window)
 {
     //create a scene
     setSceneRect(0,0,800,600);
+    setBackgroundBrush(*new QBrush(Qt::gray));
 
+    //game over line
     addLine(0,480,800,480);
 
     //create item to put in scene
     player = new Player();
     player->setRect(0,0,40,40);
-    player->setPos(400,500);
+    player->setPos(400,550);
+    player->setBrush(*new QBrush(Qt::darkBlue));
     //make player focusable
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();

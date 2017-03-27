@@ -16,6 +16,7 @@ Title::Title(QWidget *parent) : QMainWindow(parent)
     title->setFont(titleFont);
 
     startButton = new Button("Start",this);
+    startButton->setStyleSheet("background-color:green;");
     QFont buttonFont("Times", 40, QFont::AllUppercase);
     startButton-> setFont(buttonFont);
     startButton-> setGeometry(300,300,200,100);
