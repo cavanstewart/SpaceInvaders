@@ -7,8 +7,9 @@
 int Enemy::xdistance = 440;
 bool Enemy::yhit = false;
 
-Enemy::Enemy(int xpos, int ypos) : QObject(), QGraphicsRectItem()
+Enemy::Enemy(int xpos, int ypos, Title *window) : QObject(), QGraphicsRectItem()
 {
+    mainWindow=window;
     dx = 1;
     dy = 0;
     xdir = 1;
@@ -22,6 +23,16 @@ Enemy::Enemy(int xpos, int ypos) : QObject(), QGraphicsRectItem()
     timer->start(initSpeed);
 }
 
+void Enemy::gameOver()
+{
+    QLabel* gameOverText = new QLabel("Game Over");
+    gameOverText->setStyleSheet("QLabel {color : red; }");
+    gameOverText->setGeometry(200,200,400,100);
+    QFont titleFont("Times", 40, QFont::AllUppercase);
+    gameOverText->setFont(titleFont);
+    QGraphicsProxyWidget* proxyText = mainWindow->get_gameScene()->addWidget(gameOverText);
+}
+
 
 void Enemy::move()
 {
@@ -33,11 +44,9 @@ void Enemy::move()
 
     if(yhit == true){
         timer->stop();
+        gameOver();
+        //Game::gameOver();
     }
-
-   // if(pos().y() == inity + ydistance){
-    //    timer->stop();
-   // }
 
     if(pos().x() == (initx + xdistance) && dx !=0){
         dy = 1;

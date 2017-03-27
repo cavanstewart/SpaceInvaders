@@ -1,4 +1,5 @@
 #include "game.h"
+#include "QGraphicsProxyWidget"
 
 Game::Game(Title* window)
 {
@@ -18,8 +19,24 @@ Game::Game(Title* window)
 
     for(int i = 0; i < 5; i++){
         for (int j = 0; j < 5; j++){
-            enemy = new Enemy(i*80,j*80);
+            enemy = new Enemy(i*80,j*80,window);
             addItem(enemy);
         }
     }
+
+}
+
+void Game::gameOver(){
+    for (size_t i = 0, n = items().size(); i < n; i++){
+            items()[i]->setEnabled(false);
+        }
+
+    QLabel* gameOverText = new QLabel("Game Over");
+    gameOverText->setStyleSheet("QLabel {color : red; }");
+    gameOverText->setGeometry(200,200,400,100);
+    QFont titleFont("Times", 40, QFont::AllUppercase);
+    gameOverText->setFont(titleFont);
+    QGraphicsProxyWidget* proxyText = this->addWidget(gameOverText);
+
+
 }

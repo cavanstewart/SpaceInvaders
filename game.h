@@ -12,11 +12,11 @@ class Game : public QGraphicsScene {
     Q_OBJECT
 public:
     Game(Title* window = 0);
+    void gameOver();
 
 private:
     Player* player;
     Enemy* enemy;
-    Title* parentWindow;
 
 };
 

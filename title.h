@@ -21,6 +21,7 @@ class Title : public QMainWindow
 public:
     explicit Title(QWidget *parent = 0);
     void hide_all();
+    QGraphicsScene* get_gameScene(){return gameScene;}
 
 private:
     QLabel *title;

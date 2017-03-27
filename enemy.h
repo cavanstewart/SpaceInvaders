@@ -3,11 +3,12 @@
 
 #include <QObject>
 #include <QGraphicsRectItem>
+#include "title.h"
 
 class Enemy : public QObject, public QGraphicsRectItem{
     Q_OBJECT
 public:
-    Enemy(int xpos = 0, int ypos = 0);
+    Enemy(int xpos = 0, int ypos = 0,Title* window = 0);
     int initSpeed = 600;
     int initx;
     int inity;
@@ -18,6 +19,8 @@ public:
     static int xdistance;
     static bool yhit;
     QTimer* timer;
+    Title* mainWindow;
+    void gameOver();
 
 public slots:
     void move();

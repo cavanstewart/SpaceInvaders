@@ -25,7 +25,6 @@ Title::Title(QWidget *parent) : QMainWindow(parent)
 
 void Title::start()
 {
-    //if(event->key() != Qt::Key_Space){
     hide_all();
     gameScene = new Game(this);
     gameView = new QGraphicsView(this);
@@ -33,7 +32,6 @@ void Title::start()
     this->setCentralWidget(gameView);
     gameView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     gameView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    //}
 }
 
 void Title::hide_all(){
