@@ -16,6 +16,7 @@ void Player::keyPressEvent(QKeyEvent *event){
         setPos(x()+10,y());
         }
     }
+    //only one lazer can be fired at a time
     else if((event->key() == Qt::Key_Space) && !(Lazer::numLazers)){
         Lazer* lazer = new Lazer();
         lazer->setPos(x(),y());

@@ -28,8 +28,6 @@ void Lazer::move(){
     // if one of the colliding items is an Enemy, destroy both the bullet and the enemy
     for (int i = 0, n = colliding_items.size(); i < n; ++i){
         if (typeid(*(colliding_items[i])) == typeid(Enemy)){
-            // increase the score
-            //game->score->increase();
 
             // remove them from the scene (still on the heap)
             scene()->removeItem(colliding_items[i]);
@@ -54,6 +52,5 @@ void Lazer::move(){
         scene()->removeItem(this);
         delete this;
         static bool onScreen = false;
-        qDebug()<<"lazer deleted";
     }
 }

@@ -34,12 +34,7 @@ void Game::gameOver(){
             items()[i]->setEnabled(false);
         }
 
-    QLabel* gameOverText = new QLabel("Game Over");
-    gameOverText->setStyleSheet("QLabel {color : red; }");
-    gameOverText->setGeometry(200,200,400,100);
-    QFont titleFont("Times", 40, QFont::AllUppercase);
-    gameOverText->setFont(titleFont);
-    QGraphicsProxyWidget* proxyText = this->addWidget(gameOverText);
+
 
 
 }

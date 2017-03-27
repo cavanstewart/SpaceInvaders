@@ -3,18 +3,21 @@
 
 Title::Title(QWidget *parent) : QMainWindow(parent)
 {
+    //background color
     setFixedSize(800,600);
     QPalette background = palette();
     background.setColor(QPalette::Background, Qt::black);
     setAutoFillBackground(true);
     setPalette(background);
 
+    //Title text
     title = new QLabel("Space Invaders", this);
     title->setStyleSheet("QLabel {color : green; }");
     title->setGeometry(100,100,600,100);
     QFont titleFont("Times", 40, QFont::AllUppercase);
     title->setFont(titleFont);
 
+    //Button
     startButton = new Button("Start",this);
     startButton->setStyleSheet("background-color:green;");
     QFont buttonFont("Times", 40, QFont::AllUppercase);

@@ -49,7 +49,6 @@ void Enemy::move()
     if(yhit == true){
         timer->stop();
         gameOver();
-        //Game::gameOver();
     }
 
     if(pos().x() == (initx + xdistance) && dx !=0){
